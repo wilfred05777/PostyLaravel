@@ -10,4 +10,14 @@ class RegisterController extends Controller
     public function index(){
         return view('auth.register');
     }
+
+    public function store(Request $request){
+        dd($request);
+
+        // validition
+
+        // store user
+        // sign the user in
+        // redirect
+    }
 }
