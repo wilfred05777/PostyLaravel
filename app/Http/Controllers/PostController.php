@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index(){
-        return view('posts.index');
+
+        $posts = Post::get(); // laravel collection
+
+        return view('posts.index', [
+            'posts' => $posts
+        ]);
     }
 
     public function store(Request $request){
@@ -21,6 +26,8 @@ class PostController extends Controller
             // user_id - laravel
             'body' => $request->body
         ]);
+
+        // $request->user()->posts()->create($request->only('body'));
 
         return back();
 
