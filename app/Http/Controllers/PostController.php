@@ -16,8 +16,13 @@ class PostController extends Controller
         $this->validate($request, [
             'body' => 'required'
         ]);
+                // relationship
+        $request->user()->posts()->create([
+            // user_id - laravel
+            'body' => $request->body
+        ]);
 
-        
+        return back();
 
         // auth()->user()->posts()->create();
 
