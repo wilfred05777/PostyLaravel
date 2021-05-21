@@ -19,7 +19,12 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function(){ return view('home');})->name('home');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
+// 1st method of applying a middleware
+// Route::get('/dashboard', [DashboardController::class, 'index'])
+//     ->name('dashboard')
+//     ->middleware('auth');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
