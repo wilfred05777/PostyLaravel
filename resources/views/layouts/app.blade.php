@@ -14,7 +14,7 @@
                 <a href="" class="p-3">Home</a>
             </li>
             <li>
-                <a href="" class="p-3">Dashboard</a>
+                <a href="{{ route('dashboard')}}" class="p-3">Dashboard</a>
             </li>
             <li>
                 <a href="/posts" class="p-3">Post</a>
@@ -22,18 +22,22 @@
         </ul>
 
         <ul class="flex items-center">
-            <li>
-                <a href="" class="p-3">Name</a>
-            </li>
-            <li>
-                <a href="" class="p-3">Login</a>
-            </li>
-            <li>
-                <a href="{{ route('register')}}" class="p-3">Register</a>
-            </li>
-            <li>
-                <a href="" class="p-3">Logout</a>
-            </li>
+            @if(auth()->user())
+                <li>
+                    <a href="" class="p-3">Wilfred</a>
+                </li>
+                <li>
+                    <a href="" class="p-3">Logout</a>
+                </li>
+            @else
+                <li>
+                    <a href="" class="p-3">Login</a>
+                </li>
+                <li>
+                    <a href="{{ route('register')}}" class="p-3">Register</a>
+                </li>
+            @endif
+
         </ul>
     </nav>
     @yield('content')

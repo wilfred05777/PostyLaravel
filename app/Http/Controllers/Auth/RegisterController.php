@@ -8,12 +8,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller{
+
+
+
     public function index(){
         return view('auth.register');
     }
 
     public function store(Request $request){
         // dd($request->email);
+
+        // dd($request->only('email', 'password'));
+
+
 
         // validation
         $this->validate($request, [
@@ -34,7 +41,7 @@ class RegisterController extends Controller{
 
 
         // sign the user in
-
+        auth()->attempt($request->only('email', 'password'));
 
         // redirect
         return redirect()->route('dashboard');
