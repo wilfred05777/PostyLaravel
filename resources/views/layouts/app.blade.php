@@ -22,7 +22,7 @@
         </ul>
 
         <ul class="flex items-center">
-            @auth(auth()->user())
+            @auth
                 <li>
                     <a href="" class="p-3">Wilfred</a>
                 </li>
