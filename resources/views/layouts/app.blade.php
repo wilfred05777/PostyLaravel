@@ -24,7 +24,7 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="" class="p-3">Wilfred</a>
+                    <a href="" class="p-3">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     {{-- <a href="{{route('logout')}}" class="p-3">Logout</a> --}}
