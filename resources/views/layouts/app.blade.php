@@ -27,7 +27,12 @@
                     <a href="" class="p-3">Wilfred</a>
                 </li>
                 <li>
-                    <a href="{{route('logout')}}" class="p-3">Logout</a>
+                    {{-- <a href="{{route('logout')}}" class="p-3">Logout</a> --}}
+                    <form action="{{ route('logout') }}" method="post" class="p-3 inline">
+                        {{-- cross site forgery protection --}}
+                        @csrf
+                        <button type="submit" >Logout</button>
+                    </form>
                 </li>
             @endauth
 
