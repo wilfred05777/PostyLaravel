@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\pages\ContactController;
 use App\Http\Controllers\Frontend\pages\GalleryController;
 use App\Http\Controllers\Frontend\pages\HomeController;
 use App\Http\Controllers\Frontend\pages\LandingController;
+use App\Http\Controllers\Frontend\pages\SocialController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -54,7 +55,9 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about',[AboutController::class, 'index'])->name('about');
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::get('/gallery', [GalleryController::class, 'index']);
-Route::get('/landing', [LandingController::class, 'index']);
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/landing', [LandingController::class, 'index'])->name('landing');
+
+Route::get('/social', [SocialController::class, 'index'])->name('social');
