@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\pages\HomeController;
 use App\Http\Controllers\Frontend\pages\LandingController;
 use App\Http\Controllers\Frontend\pages\SocialController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,10 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+
+// POST
+
+Route::post('/posts/{id}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
