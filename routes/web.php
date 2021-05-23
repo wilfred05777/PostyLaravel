@@ -2,9 +2,15 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
+
+use App\Http\Controllers\Frontend\pages\AboutController;
+use App\Http\Controllers\Frontend\pages\ContactController;
+use App\Http\Controllers\Frontend\pages\HomeController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -42,5 +48,9 @@ Route::post('/posts', [PostController::class, 'store']);
 //     return view('posts.index');
 // });
 
+// frontend pages
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/about',[AboutController::class, 'index'])->name('about');
 
+Route::get('/contact', [ContactController::class, 'index']);
 
