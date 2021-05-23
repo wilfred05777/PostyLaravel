@@ -22,7 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //Defination
+            'body' => $this->faker->sentence(20),
         ];
     }
 }
