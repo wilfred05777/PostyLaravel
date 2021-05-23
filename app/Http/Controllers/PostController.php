@@ -8,7 +8,8 @@ class PostController extends Controller
 {
     public function index(){
 
-        $posts = Post::get(); // laravel collection
+        // $posts = Post::get(); // laravel collection
+        $posts = Post::paginate(2);
 
         return view('posts.index', [
             'posts' => $posts
@@ -22,12 +23,12 @@ class PostController extends Controller
             'body' => 'required'
         ]);
                 // relationship
-        $request->user()->posts()->create([
-            // user_id - laravel
-            'body' => $request->body
-        ]);
+        // $request->user()->posts()->create([
+        //     // user_id - laravel
+        //     // 'body' => $request->body
+        // ]);
 
-        // $request->user()->posts()->create($request->only('body'));
+        $request->user()->posts()->create($request->only('body'));
 
         return back();
 
