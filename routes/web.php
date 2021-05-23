@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\pages\AboutController;
 use App\Http\Controllers\Frontend\pages\ContactController;
 use App\Http\Controllers\Frontend\pages\GalleryController;
 use App\Http\Controllers\Frontend\pages\HomeController;
+use App\Http\Controllers\Frontend\pages\LandingController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -56,3 +57,4 @@ Route::get('/about',[AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/landing', [LandingController::class, 'index']);
