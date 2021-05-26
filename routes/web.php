@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\pages\LandingController;
 use App\Http\Controllers\Frontend\pages\SocialController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 // Route::get('/dashboard', [DashboardController::class, 'index'])
 //     ->name('dashboard')
 //     ->middleware('auth');
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
