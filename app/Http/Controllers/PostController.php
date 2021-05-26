@@ -7,6 +7,11 @@ use PhpParser\Node\Expr\FuncCall;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only(['store', 'destroy']);
+    }
+
     public function index(){
 
         // $posts = Post::get(); // laravel collection
