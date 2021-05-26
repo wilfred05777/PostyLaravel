@@ -11,7 +11,7 @@
             {{-- {{  $user->name }} --}}
             <div class="bg-white p-6 rounded-lg">
                 @if($posts->count())
-
+                    {{-- 2:14:40 --}}
                     @foreach ($posts as $post)
                         <x-post :post="$post"/>
                     @endforeach
