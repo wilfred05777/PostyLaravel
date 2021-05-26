@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class PostController extends Controller
 {
@@ -10,7 +11,9 @@ class PostController extends Controller
 
         // $posts = Post::get(); // laravel collection
         // $posts = Post::paginate(20);
-        $posts = Post::with(['user', 'likes'])->paginate(20);
+
+        // $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
+        $posts = Post::orderBy('created_at', 'desc')->with(['user', 'likes'])->paginate(20);
 
         return view('posts.index', [
             'posts' => $posts
@@ -39,5 +42,12 @@ class PostController extends Controller
         //     'user_id' => auth()->id(),
         //     'body' => $request->body
         // ]);
+    }
+
+    public function destroy(Post $post){
+        // dd($post);
+        $post->delete();
+
+        return back();
     }
 }
